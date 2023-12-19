@@ -5,7 +5,8 @@
 * Author: Borsányi István
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.2.1.1 beta
+* Version: 1.2.2 beta
+* Requires PHP: 7.3
 */
 namespace MailerLiteCheckoutSubscribe;
 
@@ -43,16 +44,50 @@ class MailerLiteCheckoutSubscribe
                 do_settings_sections(__FILE__);
                 $options = get_option('mlcs_settings'); ?>
                 <table class="form-table">
-                    <tr><th scope="row"><?php echo esc_html__('MailerLite API Token:', 'mailerlite-checkout-subscribe'); ?></th><td><fieldset><label>
-                        <input name="mlcs_settings[mlcs_token]" type="text" id="mlcs_token"
-                        value="<?php echo (isset($options['mlcs_token']) && $options['mlcs_token'] != '') ? $options['mlcs_token'] : ''; ?>" /><br />
-                                    <span class="description"><?php echo esc_html__('Please enter a valid MailerLite API Token', 'mailerlite-checkout-subscribe'); ?></span>
-                    </label></fieldset></td></tr>
-                    <tr><th scope="row"><?php echo esc_html__('MailerLite Group Settings:', 'mailerlite-checkout-subscribe'); ?></th><td><fieldset><label>
-                        <input name="mlcs_settings[mlcs_list]" type="text" id="mlcs_list"
-                        value="<?php echo (isset($options['mlcs_list']) && $options['mlcs_list'] != '') ? $options['mlcs_list'] : ''; ?>" /><br />
-                        <span class="description"><?php echo esc_html__('Please enter a valid MailerLite subscriber list ID', 'mailerlite-checkout-subscribe'); ?></span>
-                    </label></fieldset></td></tr>
+                    <tr>
+                        <th scope="row"><?php echo esc_html__('MailerLite API Token:', 'mailerlite-checkout-subscribe'); ?></th>
+                            <td>
+                                <fieldset>
+                                    <label>
+                                        <input name="mlcs_settings[mlcs_token]" type="text" id="mlcs_token"
+                                            value="<?php echo (isset($options['mlcs_token']) && $options['mlcs_token'] != '') ? $options['mlcs_token'] : ''; ?>" /><br />
+                                            <span class="description">
+                                                <?php echo esc_html__('Please enter a valid MailerLite API Token', 'mailerlite-checkout-subscribe'); ?>
+                                            </span>
+                                    </label>
+                                </fieldset>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><?php echo esc_html__('MailerLite Group Settings:', 'mailerlite-checkout-subscribe'); ?></th>
+                            <td>
+                                <fieldset>
+                                    <label>
+                                        <input name="mlcs_settings[mlcs_list]" type="text" id="mlcs_list"
+                                            value="<?php echo (isset($options['mlcs_list']) && $options['mlcs_list'] != '') ? $options['mlcs_list'] : ''; ?>" /><br />
+                                        <span class="description">
+                                            <?php echo esc_html__('Please enter a valid MailerLite subscriber list ID', 'mailerlite-checkout-subscribe'); ?>
+                                        </span>
+                                    </label>
+                                </fieldset>
+                            </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><?php echo esc_html__('Additional field #1:', 'mailerlite-checkout-subscribe'); ?></th>
+                            <td>
+                                <fieldset>
+                                    <label>
+                                        <input name="mlcs_settings[mlcs_key1]" type="text" id="mlcs_key1"
+                                            value="<?php echo (isset($options['mlcs_key1']) && $options['mlcs_key1'] != '') ? $options['mlcs_key1'] : ''; ?>" />
+                                            <input name="mlcs_settings[mlcs_val1]" type="text" id="mlcs_val1"
+                                            value="<?php echo (isset($options['mlcs_val1']) && $options['mlcs_val1'] != '') ? $options['mlcs_val1'] : ''; ?>" /><br />
+                                        <span class="description">
+                                            <?php echo esc_html__('Please enter a valid MailerLite field ID and a field value', 'mailerlite-checkout-subscribe'); ?>
+                                        </span>
+                                    </label>
+                                </fieldset>
+                            </td>
+                    </tr>
                 </table>
                 <input type="submit" value="<?php echo esc_html__('Save Changes', 'mailerlite-checkout-subscribe'); ?>" />
             </form>
@@ -67,6 +102,7 @@ class MailerLiteCheckoutSubscribe
 
     public function mlcs_settings_validate($args)
     {
+        $err = true;
         if ( !isset($args['mlcs_token']) || empty(trim($args['mlcs_token'])) ) {
             $args['mlcs_token'] = '';
             add_settings_error('mlcs_settings', 'mlcs_invalid_token', esc_html__('Please enter a valid token!', 'mailerlite-checkout-subscribe'), $type = 'error');
@@ -75,7 +111,19 @@ class MailerLiteCheckoutSubscribe
             $args['mlcs_list'] = '';
             add_settings_error('mlcs_settings', 'mlcs_invalid_list', esc_html__('Please enter a valid subscriber list!', 'mailerlite-checkout-subscribe'), $type = 'error');
         }
-        error_log('ARGS: ' . json_encode($args));
+        if ((!isset($args['mlcs_key1']) || empty(trim($args)['mlcs_key1'])) && (!isset($args['mlcs_val1']) || empty(trim($args)['mlcs_val1'])) ) {
+            $args['mlcs_key1'] = '';
+            $args['mlcs_val1'] = '';
+            $err = false;
+        }
+        if ((isset($args['mlcs_key1']) || !empty(trim($args)['mlcs_key1'])) && (isset($args['mlcs_val1']) || !empty(trim($args)['mlcs_val1']))) {
+            $err = false;
+        }
+
+        if ($err) {
+            add_settings_error('mlcs_settings', 'mlcs_key_value_pair', esc_html__('Please enter valid Key & Value pair!', 'mailerlite-checkout-subscribe'), $type = 'error');
+        }
+        //error_log('ARGS: ' . json_encode($args)); //debug
         return $args;
     }
 
@@ -109,6 +157,8 @@ class MailerLiteCheckoutSubscribe
 
         $api_key = get_option('mlcs_settings')['mlcs_token'];
         $list_id = get_option('mlcs_settings')['mlcs_list'];
+        $key1 = get_option('mlcs_settings')['mlcs_key1'];
+        $val1 = get_option('mlcs_settings')['mlcs_val1'];
         
         // Set the request body
         $body = array(
@@ -117,7 +167,7 @@ class MailerLiteCheckoutSubscribe
                 'first_name' => $customer_name,
                 'last_name' => $customer_last_name,
                 'phone' => $customer_phone,
-                //'marketing_preferences' => array('Telemarketing' => true, ),
+                $key1 => $val1,                 //'marketing_preferences' => 'Telemarketing',
             ),
         );
 
@@ -139,16 +189,16 @@ class MailerLiteCheckoutSubscribe
         // Check the response status code
         if (wp_remote_retrieve_response_code($response) === 200) {
             echo esc_html__('Customer subscribed successfully.', 'mailerlite-checkout-subscribe');
-            error_log('SUCCESS: ' . json_encode($body));
+            //error_log('SUCCESS: ' . json_encode($body)); //debug
         } else {
             echo esc_html__('Error subscribing customer: ', 'mailerlite-checkout-subscribe') . wp_remote_retrieve_response_message($response);
-            error_log('FALSE: ' . json_encode($body));
+            //error_log('FALSE: ' . json_encode($body)); //debug
         }
     }
     public function wc_add_phone_call_subscription_checkbox()
     {
         /*
-        if (!current_user_can('administrator')) {
+        if (!current_user_can('administrator')) { //debug
             return;
         }
         */
@@ -160,9 +210,7 @@ class MailerLiteCheckoutSubscribe
     public function wc_save_phone_call_subscription_state($order)
     {
         if (isset($_POST['phone_call_subscription'])) {
-            //$order = wc_get_order($order_id);
             if (is_object($order)){
-                //update_post_meta( $order_id, 'mlcs_subscibed', 1 );
                 $order->update_meta_data('mlcs_subscibed', 1);
                 $order->save();
             }
