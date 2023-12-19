@@ -5,7 +5,7 @@
 * Author: Borsányi István
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.2 beta
+* Version: 1.2.1 beta
 */
 namespace MailerLiteCheckoutSubscribe;
 
@@ -116,7 +116,9 @@ class MailerLiteCheckoutSubscribe
             'fields' => array(
                 'first_name' => $customer_name,
                 'last_name' => $customer_last_name,
-                'phone' => $customer_phone,),
+                'phone' => $customer_phone,
+                //'marketing_preferences' => array('Telemarketing' => true, ),
+            ),
         );
 
         // Construct the URL
