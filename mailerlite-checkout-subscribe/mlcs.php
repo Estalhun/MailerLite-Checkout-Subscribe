@@ -5,7 +5,7 @@
 * Author: Borsányi István
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.2.1 beta
+* Version: 1.2.1.1 beta
 */
 namespace MailerLiteCheckoutSubscribe;
 
@@ -153,7 +153,8 @@ class MailerLiteCheckoutSubscribe
         }
         */
 
-        echo '<p><span class="woocommerce-input-wrapper"><label class="checkbox"><input type="checkbox" id="phone_call_subscription" name="phone_call_subscription">' .
+        echo '<p><span class="woocommerce-input-wrapper"><label class="checkbox"><input type="checkbox" id="phone_call_subscription"
+         class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="phone_call_subscription">' .
             esc_html__('Would you like to receive a phone call from our customer support team?', 'mailerlite-checkout-subscribe') . '</label></span></p>';
     }
     public function wc_save_phone_call_subscription_state($order)
