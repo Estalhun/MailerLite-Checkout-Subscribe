@@ -5,7 +5,7 @@
 * Author: Borsányi István
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.2.3 beta
+* Version: 1.2.4 beta
 * Requires PHP: 7.3
 */
 namespace MailerLiteCheckoutSubscribe;
@@ -138,7 +138,7 @@ class MailerLiteCheckoutSubscribe
     {
         $mlcs_subscribed = get_post_meta( $order_id, 'mlcs_subscibed', true );
 
-        if (!isset($mlcs_subscribed) || $mlcs_subscribed = false) {
+        if (!isset($mlcs_subscribed) || $mlcs_subscribed != 1) {
             return;
         }
 
@@ -209,9 +209,8 @@ class MailerLiteCheckoutSubscribe
     }
     public function wc_save_phone_call_subscription_state($order)
     {
-        $checkbox = isset($_POST['phone_call_subscription']) ? true : false;
-        
-        if (is_object($order)){
+        $checkbox = isset($_POST['phone_call_subscription']) ? 1 : 0;
+        if (is_object($order)) {
             $order->update_meta_data('mlcs_subscibed', $checkbox);
             $order->save();
         }
