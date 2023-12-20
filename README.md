@@ -1,4 +1,7 @@
 # MailerLite-Checkout-Subscribe
+
+You can use MailerLite's API and customize ML fields to sign up Woocommerce customers at checkout.
+
 First public Beta
 
 Install plugin:
