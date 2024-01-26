@@ -15,7 +15,6 @@ if (!defined('ABSPATH')) {
 }
 class MailerLiteCheckoutSubscribe
 {
-
     public function __construct()
     {
         add_action('admin_init', array($this, 'mlcs_register_plugin_setting_fields'));
@@ -82,7 +81,7 @@ class MailerLiteCheckoutSubscribe
                                     <label>
                                         <input name="mlcs_settings[mlcs_key1]" type="text" id="mlcs_key1"
                                             value="<?php echo (isset($options['mlcs_key1']) && $options['mlcs_key1'] != '') ? $options['mlcs_key1'] : ''; ?>" />
-                                            <input name="mlcs_settings[mlcs_val1]" type="text" id="mlcs_val1"
+                                        <input name="mlcs_settings[mlcs_val1]" type="text" id="mlcs_val1"
                                             value="<?php echo (isset($options['mlcs_val1']) && $options['mlcs_val1'] != '') ? $options['mlcs_val1'] : ''; ?>" /><br />
                                         <span class="description">
                                             <?php echo esc_html__('Please enter a valid MailerLite field ID and a field value', 'mailerlite-checkout-subscribe'); ?>
@@ -169,17 +168,8 @@ class MailerLiteCheckoutSubscribe
     {
         settings_errors(); //Display the validation errors and update messages
     }
-    public function subscribeCustomer($order_id)
+    public function subscribeCustomer($order_id) //order-received page
     {
-        $mlcs_subscribed = get_post_meta( $order_id, 'mlcs_subscibed', true );
-
-        /*
-        if (!current_user_can('administrator')) { //DEBUG
-            return;
-        }
-        error_log('ML1: ' . $mlcs_subscribed);
-        */
-
         $err = false;
         $order = wc_get_order( $order_id );
         $customer_email = $order->get_billing_email();
@@ -189,12 +179,18 @@ class MailerLiteCheckoutSubscribe
 
         $api_key = get_option('mlcs_settings')['mlcs_token'];
         $list_id = get_option('mlcs_settings')['mlcs_list'];
-        $list_active = get_option('mlcs_settings')['mlcs_list_active'];
+        //$list_active = get_option('mlcs_settings')['mlcs_list_active'];
+        $mlcs_subscribed = get_post_meta($order_id, 'mlcs_subscibed', true);
         $key1 = get_option('mlcs_settings')['mlcs_key1'];
         $val1 = get_option('mlcs_settings')['mlcs_val1'];
         $follow_up_list_id = get_option('mlcs_settings')['mlcs_follow_up_list'];
         $follow_up_list_active = get_option('mlcs_settings')['mlcs_follow_up_list_active'];
-
+/*
+        if (current_user_can('administrator')) { //DEBUG
+            error_log('ML1: ' . $mlcs_subscribed);
+        }
+*/        
+        //subscibe customer to the list
         if (isset($mlcs_subscribed) && $mlcs_subscribed == 1) {
             // Set the request body
             $body = array(
@@ -204,7 +200,7 @@ class MailerLiteCheckoutSubscribe
                     'last_name' => $customer_last_name,
                     'subscriber_language' => determine_locale(),
                     'phone' => $customer_phone,
-                    $key1 => $val1,                 //'marketing_preferences' => 'Telemarketing',
+                    $key1 => $val1,                 //'e.g. marketing_preferences' => 'Telemarketing',
                 ),
             );
 
@@ -232,25 +228,15 @@ class MailerLiteCheckoutSubscribe
         //follow-up email
         if ($follow_up_list_active && !$err) {
             // Set the request body
-            if (isset($mlcs_subscribed) && $mlcs_subscribed == 1){ // already subscribed to telemarketing
-                $body = array(
-                    'email' => $customer_email,
-                    'fields' => array(
-                        'subscriber_language' => determine_locale(),
-                    ),
-                );    
-            } else {
-                $body = array(
-                    'email' => $customer_email,
-                    'fields' => array(
-                        'first_name' => $customer_name,
-                        'last_name' => $customer_last_name,
-                        'subscriber_language' => determine_locale(),
-                        'phone' => $customer_phone,
-                        $key1 => $val1,                 //'marketing_preferences' => 'Telemarketing',
-                    ),
-                );
-            }
+            $body = array(
+                'email' => $customer_email,
+                'fields' => array(
+                    'first_name' => $customer_name,
+                    'last_name' => $customer_last_name,
+                    'subscriber_language' => determine_locale(),
+                ),
+            );
+
             // Construct the URL
             $url = 'https://api.mailerlite.com/api/v2/groups/' . $follow_up_list_id . '/subscribers';
 
@@ -282,18 +268,13 @@ class MailerLiteCheckoutSubscribe
     }
     public function wc_add_phone_call_subscription_checkbox()
     {
-        /*
-        if (!current_user_can('administrator')) { //debug
-            return;
-        }
-        */
         $list_active = get_option('mlcs_settings')['mlcs_list_active'];
         if(isset($list_active) && $list_active)
         echo '<p><span class="woocommerce-input-wrapper"><label class="checkbox"><input type="checkbox" id="phone_call_subscription"
          class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="phone_call_subscription">' .
             esc_html__('Would you like to receive a phone call from our customer support team?', 'mailerlite-checkout-subscribe') . '</label></span></p>';
     }
-    public function wc_save_phone_call_subscription_state($order)
+    public function wc_save_phone_call_subscription_state($order) //for card payments and Paypal
     {
         $checkbox = isset($_POST['phone_call_subscription']) ? 1 : 0;
         if (is_object($order)) {
