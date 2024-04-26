@@ -5,7 +5,7 @@
 * Author: Borsányi István, Gyuris Csaba
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.7.0
+* Version: 1.7.1
 * Requires PHP: 7.4
 * Requires at least: 5.6
 * Text Domain: mailerlite-checkout-subscribe
@@ -322,10 +322,10 @@ class MailerLiteCheckoutSubscribe
     public function mlcs_update_user_meta($user_id) { //to prevent the subscriber to re-subscribe 
         if (is_user_logged_in() ) {
             if (get_user_meta($user_id, 'mlcs_telemarketing_subscibed', true) ) {
-                update_user_meta($user_id, 'mlcs_telemarketing_subscibed', 2); //0
+                update_user_meta($user_id, 'mlcs_telemarketing_subscibed', 0);
             }
             if (get_user_meta($user_id, 'mlcs_newsletter_subscibed', true) ) {
-                update_user_meta($user_id, 'mlcs_newsletter_subscibed', 2); //0
+                update_user_meta($user_id, 'mlcs_newsletter_subscibed', 0);
             }
         }
     }  
