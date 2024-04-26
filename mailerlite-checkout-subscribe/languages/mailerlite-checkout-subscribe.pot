@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailerLite Checkout Subscribe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-28 11:14+0000\n"
+"POT-Creation-Date: 2024-04-26 10:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,14 +21,14 @@ msgid "Additional field #1:"
 msgstr ""
 
 #. Author of the plugin
-msgid "Borsányi István"
+msgid "Borsányi István, Gyuris Csaba"
 msgstr ""
 
 #: mlcs.php:140 mlcs.php:160 mlcs.php:197
 msgid "Enabled"
 msgstr ""
 
-#: mlcs.php:529
+#: mlcs.php:545
 msgid "Error subscribing customer: "
 msgstr ""
 
@@ -36,11 +36,11 @@ msgstr ""
 msgid "https://github.com/Estalhun"
 msgstr ""
 
-#: mlcs.php:424
+#: mlcs.php:440
 msgid "I subscribe to newsletters."
 msgstr ""
 
-#: mlcs.php:442
+#: mlcs.php:458
 msgid "I subscribe to telemarketing calls."
 msgstr ""
 
@@ -100,7 +100,7 @@ msgstr ""
 msgid "Please enter a valid token!"
 msgstr ""
 
-#: mlcs.php:486
+#: mlcs.php:502
 msgid "Please enter the mobile number in the following format: +36701234567"
 msgstr ""
 
@@ -112,21 +112,21 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: mlcs.php:489
+#: mlcs.php:505
 msgid ""
 "the browser you are using is not up to date and therefore does not work with "
 "the shop,"
 msgstr ""
 
-#: mlcs.php:488
+#: mlcs.php:504
 msgid "the data entered is incorrect,"
 msgstr ""
 
-#: mlcs.php:485
+#: mlcs.php:501
 msgid "The mobile phone number you entered is incorrect:"
 msgstr ""
 
-#: mlcs.php:487
+#: mlcs.php:503
 msgid "This may be due to the following reasons:"
 msgstr ""
 
@@ -141,17 +141,17 @@ msgid ""
 "fields."
 msgstr ""
 
-#: mlcs.php:396
+#: mlcs.php:398
 msgid "Would you like to receive a phone call from our customer support team?"
 msgstr ""
 
-#: mlcs.php:490
+#: mlcs.php:506
 msgid ""
 "You are using an ad-blocking plugin that may cause errors in the operation "
 "of the shop, so please disable it!"
 msgstr ""
 
-#: mlcs.php:426 mlcs.php:444
+#: mlcs.php:442 mlcs.php:460
 msgid ""
 "You may withdraw your consent at any time, without giving any reason, in "
 "accordance with the Privacy Policy."

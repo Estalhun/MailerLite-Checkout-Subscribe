@@ -2,10 +2,10 @@
 /*
 * Plugin Name: MailerLite Checkout Subscribe
 * Description: Use this plugin together with MailerLite - WooCommerce integration. Functions: Sign up at registration, follow-up email subscription, custom fields.
-* Author: Borsányi István
+* Author: Borsányi István, Gyuris Csaba
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.6.10
+* Version: 1.7.0
 * Requires PHP: 7.4
 * Requires at least: 5.6
 * Text Domain: mailerlite-checkout-subscribe
@@ -45,7 +45,7 @@ class MailerLiteCheckoutSubscribe
         add_action('woocommerce_register_form', array($this, 'mlcs_wc_add_newsletter_checkbox_registration'), 5);
         add_action('woocommerce_register_form', array($this, 'mlcs_wc_add_phone_call_checkbox_registration'), 6);
         add_action('woocommerce_created_customer', array($this, 'mlcs_subscribe_user_wc_registration'));
-        add_action('woocommerce_before_checkout_form', array($this, 'mlcs_check_customer_already_subscribed_checkout')); //wp_enqueue_scripts
+        add_action('wp_footer', array($this, 'mlcs_check_customer_already_subscribed_checkout')); //wp_enqueue_scripts wp_footer
         add_action('wp_ajax_mlcs_email_check', array($this, 'mlcs_email_check')); //AJAX hook
         add_action('wp_ajax_mlcs_phone_check', array($this, 'mlcs_phone_check')); //AJAX hook
         add_action('woocommerce_thankyou', array($this, 'mlcs_subscribe_customer_after_order'), 10); // $order->get_id() 
@@ -268,7 +268,7 @@ class MailerLiteCheckoutSubscribe
     {
         check_ajax_referer( 'mlcs-email-nonce', 'nonce' );  // Check the nonce, stop early when the nonce invalid.
         if (is_user_logged_in() ) { //is changed the customer's billing_email? The customer has the choice to subscribe the new email addrress or not.
-            //setcookie('mlcs_billing_email', wp_get_current_user()->user_email, time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
+            setcookie('mlcs_billing_email', wp_get_current_user()->user_email, time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
             wp_send_json_success( array(
                 'subscribed' => get_user_meta(wp_get_current_user()->ID, 'mlcs_newsletter_subscibed', true),
                 'email' => wp_get_current_user()->user_email,
@@ -282,13 +282,14 @@ class MailerLiteCheckoutSubscribe
         if (is_user_logged_in()) { //is changed the customer's billing_phone? The customer has the choice to subscribe the new phone number or not.
             $mlcs_subscribed = get_user_meta(get_current_user_id(), 'mlcs_telemarketing_subscibed', true);
             if ($mlcs_subscribed) {
-                //setcookie('mlcs_billing_phone', 'SUBSCRIBED', time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
+                setcookie('mlcs_billing_phone', 'SUBSCRIBED', time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
                 echo 'SUBSCRIBED';
             }
         }
         wp_die(); //terminate the AJAX request !!
     }
     public function mlcs_check_customer_already_subscribed_checkout() {
+        if(! is_checkout()) return false;
         $list_active = array_key_exists('mlcs_newsletter_list_active', $this->options) ? $this->options['mlcs_newsletter_list_active'] : false; //if the subscription is enabled on register page
         if ($list_active) {
             $woo_mailerlite_checkout = get_option('woocommerce_mailerlite_settings');
@@ -321,10 +322,10 @@ class MailerLiteCheckoutSubscribe
     public function mlcs_update_user_meta($user_id) { //to prevent the subscriber to re-subscribe 
         if (is_user_logged_in() ) {
             if (get_user_meta($user_id, 'mlcs_telemarketing_subscibed', true) ) {
-                update_user_meta($user_id, 'mlcs_telemarketing_subscibed', 0);
+                update_user_meta($user_id, 'mlcs_telemarketing_subscibed', 2); //0
             }
             if (get_user_meta($user_id, 'mlcs_newsletter_subscibed', true) ) {
-                update_user_meta($user_id, 'mlcs_newsletter_subscibed', 0);
+                update_user_meta($user_id, 'mlcs_newsletter_subscibed', 2); //0
             }
         }
     }  
@@ -388,6 +389,7 @@ class MailerLiteCheckoutSubscribe
     {
         $list_active = array_key_exists('mlcs_telemarketing_list_active', $this->options) ? $this->options['mlcs_telemarketing_list_active'] : false;
         if($list_active) {
+            
             ?>
                 <p id="mlcs_telemarketing" class="form-row">
                     <span class="woocommerce-input-wrapper">
@@ -397,7 +399,21 @@ class MailerLiteCheckoutSubscribe
                         </label>
                     </span>
                 </p>
+                <script>
+                    jQuery(document).ready(function ($) {
+                        var $telemarketingCheckbox = $("input[name=mlcs_phone_call_subscription]");
+                        let isChecked = localStorage.getItem('mlcs_phone_call_subscription') === 'true';
+                        $telemarketingCheckbox.prop('checked', isChecked);
+                        
+                        $telemarketingCheckbox.on("click", function () {
+                            let isChecked = $(this).is(':checked');
+                            localStorage.setItem('mlcs_phone_call_subscription', isChecked);
+                        });
+                        
+                    });
+                </script>
             <?php
+            
         }
     }
 

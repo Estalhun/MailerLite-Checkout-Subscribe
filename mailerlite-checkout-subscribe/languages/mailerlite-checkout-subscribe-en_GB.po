@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailerLite Checkout Subscribe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-28 09:42+0000\n"
-"PO-Revision-Date: 2024-04-26 10:57+0000\n"
-"Last-Translator: Borsányi István\n"
-"Language-Team: Hungarian\n"
-"Language: hu-HU\n"
+"POT-Creation-Date: 2024-03-28 11:14+0000\n"
+"PO-Revision-Date: 2024-04-26 10:58+0000\n"
+"Last-Translator: Admin2 Admin2\n"
+"Language-Team: English (UK)\n"
+"Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgstr ""
 
 #: mlcs.php:545
 msgid "Error subscribing customer: "
-msgstr "Hiba a vásárló feliratkozásában:"
+msgstr ""
 
 #. Author URI of the plugin
 msgid "https://github.com/Estalhun"
@@ -37,11 +37,11 @@ msgstr ""
 
 #: mlcs.php:440
 msgid "I subscribe to newsletters."
-msgstr "Feliratkozom hírlevelekre."
+msgstr ""
 
 #: mlcs.php:458
 msgid "I subscribe to telemarketing calls."
-msgstr "Feliratkozom telemarketinges hívásokra."
+msgstr ""
 
 #: mlcs.php:117
 msgid "MailerLite API Token:"
@@ -101,7 +101,7 @@ msgstr ""
 
 #: mlcs.php:502
 msgid "Please enter the mobile number in the following format: +36701234567"
-msgstr "Kérjük, adja meg a mobilszámot a következő formátumban: +36701234567"
+msgstr "Please enter the mobile number in the following format: +441234567890"
 
 #: mlcs.php:242 mlcs.php:255
 msgid "Please enter valid Key & Value pair!"
@@ -116,20 +116,18 @@ msgid ""
 "the browser you are using is not up to date and therefore does not work with "
 "the shop,"
 msgstr ""
-"az Ön által használt böngésző nem megfelelő, ezért nem működik a "
-"webáruházzal,"
 
 #: mlcs.php:504
 msgid "the data entered is incorrect,"
-msgstr "a megadott adatok helytelenek,"
+msgstr ""
 
 #: mlcs.php:501
 msgid "The mobile phone number you entered is incorrect:"
-msgstr "A megadott mobiltelefonszám helytelen:"
+msgstr ""
 
 #: mlcs.php:503
 msgid "This may be due to the following reasons:"
-msgstr "Ennek a következő okai lehetnek:"
+msgstr ""
 
 #: mlcs.php:143
 msgid "This should be the default MailerLite newsletter group."
@@ -144,20 +142,16 @@ msgstr ""
 
 #: mlcs.php:398
 msgid "Would you like to receive a phone call from our customer support team?"
-msgstr "Feliratkozom telemarketinges hívásokra."
+msgstr "I subscribe to telemarketing calls."
 
 #: mlcs.php:506
 msgid ""
 "You are using an ad-blocking plugin that may cause errors in the operation "
 "of the shop, so please disable it!"
 msgstr ""
-"Olyan reklámblokkoló bővítményt használ, amely hibákat okozhat a webáruház "
-"működésében, ezért kérjük, kapcsolja ki!"
 
 #: mlcs.php:442 mlcs.php:460
 msgid ""
 "You may withdraw your consent at any time, without giving any reason, in "
 "accordance with the Privacy Policy."
 msgstr ""
-"A hozzájárulását bármikor, indoklás nélkül visszavonhatja az Adatvédelmi "
-"szabályzatnak megfelelően."
