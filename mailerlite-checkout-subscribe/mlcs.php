@@ -268,7 +268,7 @@ class MailerLiteCheckoutSubscribe
     {
         check_ajax_referer( 'mlcs-email-nonce', 'nonce' );  // Check the nonce, stop early when the nonce invalid.
         if (is_user_logged_in() ) { //is changed the customer's billing_email? The customer has the choice to subscribe the new email addrress or not.
-            setcookie('mlcs_billing_email', wp_get_current_user()->user_email, time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
+            //setcookie('mlcs_billing_email', wp_get_current_user()->user_email, time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
             wp_send_json_success( array(
                 'subscribed' => get_user_meta(wp_get_current_user()->ID, 'mlcs_newsletter_subscibed', true),
                 'email' => wp_get_current_user()->user_email,
@@ -282,7 +282,7 @@ class MailerLiteCheckoutSubscribe
         if (is_user_logged_in()) { //is changed the customer's billing_phone? The customer has the choice to subscribe the new phone number or not.
             $mlcs_subscribed = get_user_meta(get_current_user_id(), 'mlcs_telemarketing_subscibed', true);
             if ($mlcs_subscribed) {
-                setcookie('mlcs_billing_phone', 'SUBSCRIBED', time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
+                //setcookie('mlcs_billing_phone', 'SUBSCRIBED', time() + 5 * MINUTE_IN_SECONDS, '/'); //@TODO: debug
                 echo 'SUBSCRIBED';
             }
         }
