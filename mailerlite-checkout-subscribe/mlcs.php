@@ -5,7 +5,7 @@
 * Author: Borsányi István, Gyuris Csaba
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.7.1
+* Version: 1.7.2
 * Requires PHP: 7.4
 * Requires at least: 5.6
 * Text Domain: mailerlite-checkout-subscribe
@@ -351,7 +351,7 @@ class MailerLiteCheckoutSubscribe
             $body = array(
                 'email' => $customer_email,
                 'fields' => array(
-                    'first_name' => $customer_name,
+                    'name' => $customer_name,
                     'last_name' => $customer_last_name,
                     'subscriber_language' => determine_locale(),
                     'phone' => $customer_phone,
@@ -376,7 +376,7 @@ class MailerLiteCheckoutSubscribe
             $body = array(
                 'email' => $customer_email,
                 'fields' => array(
-                    'first_name' => $customer_name,
+                    'name' => $customer_name,
                     'last_name' => $customer_last_name,
                     'subscriber_language' => determine_locale(),
                 ),
