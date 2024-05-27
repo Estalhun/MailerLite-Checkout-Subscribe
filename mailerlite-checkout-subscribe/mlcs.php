@@ -5,7 +5,7 @@
 * Author: Borsányi István, Gyuris Csaba
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.7.2
+* Version: 1.7.3
 * Requires PHP: 7.4
 * Requires at least: 5.6
 * Text Domain: mailerlite-checkout-subscribe
@@ -495,16 +495,18 @@ class MailerLiteCheckoutSubscribe
     }
     public function mlcs_validate_phone()
     {
-        $billing_phone = preg_replace('/[^0-9+]/', '', $_POST['billing_phone']); //remove bad chars
-        if (!(preg_match('/^\+[1-9][0-9]{9,}$/', $billing_phone))) { //international format
-            $billing_phone = $_POST['billing_phone'];
-            wc_add_notice(__('The mobile phone number you entered is incorrect:', 'mailerlite-checkout-subscribe') . ' <span data-no-translation style="color:red; font-weight:bold;">' . $billing_phone .
-                '</span><br /><b>' . __('Please enter the mobile number in the following format: +36701234567', 'mailerlite-checkout-subscribe') . '</b>', 'error');
-            wc_add_notice( __('This may be due to the following reasons:', 'mailerlite-checkout-subscribe') . '<br />' .
-                '<ul><li>' . __('the data entered is incorrect,', 'mailerlite-checkout-subscribe') . '</li>' .
-                '<li>' . __('the browser you are using is not up to date and therefore does not work with the shop,', 'mailerlite-checkout-subscribe') . '</li>' .
-                '<li>' . __('You are using an ad-blocking plugin that may cause errors in the operation of the shop, so please disable it!', 'mailerlite-checkout-subscribe') . '</li></ul>'
-                , 'error');
+        if (isset($_POST['billing_phone'] ) ) {
+            $billing_phone = preg_replace('/[^0-9+]/', '', $_POST['billing_phone']); //remove bad chars
+            if (!(preg_match('/^\+[1-9][0-9]{9,}$/', $billing_phone))) { //international format
+                $billing_phone = $_POST['billing_phone'];
+                wc_add_notice(__('The mobile phone number you entered is incorrect:', 'mailerlite-checkout-subscribe') . ' <span data-no-translation style="color:red; font-weight:bold;">' . $billing_phone .
+                    '</span><br /><b>' . __('Please enter the mobile number in the following format: +36701234567', 'mailerlite-checkout-subscribe') . '</b>', 'error');
+                wc_add_notice( __('This may be due to the following reasons:', 'mailerlite-checkout-subscribe') . '<br />' .
+                    '<ul><li>' . __('the data entered is incorrect,', 'mailerlite-checkout-subscribe') . '</li>' .
+                    '<li>' . __('the browser you are using is not up to date and therefore does not work with the shop,', 'mailerlite-checkout-subscribe') . '</li>' .
+                    '<li>' . __('You are using an ad-blocking plugin that may cause errors in the operation of the shop, so please disable it!', 'mailerlite-checkout-subscribe') . '</li></ul>'
+                    , 'error');
+            }
         }
     }
     public function mlcs_subscribe_user_to_list($body, $list_id)
