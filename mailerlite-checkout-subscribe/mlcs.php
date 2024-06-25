@@ -5,7 +5,7 @@
 * Author: Borsányi István, Gyuris Csaba
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.7.3
+* Version: 1.7.4
 * Requires PHP: 7.4
 * Requires at least: 5.6
 * Text Domain: mailerlite-checkout-subscribe
@@ -495,7 +495,7 @@ class MailerLiteCheckoutSubscribe
     }
     public function mlcs_validate_phone()
     {
-        if (isset($_POST['billing_phone'] ) ) {
+        if ( ! is_admin() && isset($_POST['billing_phone'] ) ) {
             $billing_phone = preg_replace('/[^0-9+]/', '', $_POST['billing_phone']); //remove bad chars
             if (!(preg_match('/^\+[1-9][0-9]{9,}$/', $billing_phone))) { //international format
                 $billing_phone = $_POST['billing_phone'];
