@@ -11,6 +11,7 @@ Install plugin:
 2. Upload via WP admin and activate.
    
 Copyright (C) 2024 István Borsányi, Csaba Gyuris
+Contact: send me a message via [Facebook](https://www.facebook.com/BorsanyiIstvan75)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
