@@ -343,7 +343,13 @@ class MailerLiteCheckoutSubscribe
         $customer_phone = $order->get_billing_phone();
         //$options = get_options('mlcs_settings');
         //$list_active = get_option('mlcs_settings')['mlcs_telemarketing_list_active'];
-        $mlcs_subscribed = get_post_meta($order_id, 'mlcs_subscibed', true);
+                
+        $mlcs_subscribed = $order->get_meta('mlcs_subscibed', true); 
+        
+        if (! $mlcs_subscribed){
+            $mlcs_subscribed = get_post_meta($order_id, 'mlcs_subscibed', true); 
+        }
+
         $list_id = array_key_exists('mlcs_telemarketing_list', $this->options) ? $this->options['mlcs_telemarketing_list'] : false;
         //subscibe customer to the telemarketing list
         if (isset($mlcs_subscribed) && $mlcs_subscribed == 1) {
