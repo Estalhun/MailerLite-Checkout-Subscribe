@@ -5,12 +5,13 @@
 * Author: Borsányi István, Gyuris Csaba
 * Author URI: https://github.com/Estalhun
 * License: GPLv2 or later
-* Version: 1.7.4
+* Version: 1.7.5
 * Requires PHP: 7.4
 * Requires at least: 5.6
 * Text Domain: mailerlite-checkout-subscribe
 * WC tested up to: 8.5.1
 * WC requires at least: 5.6
+* HPOS Compatible: true
 */
 
 namespace MailerLiteCheckoutSubscribe;
@@ -51,6 +52,11 @@ class MailerLiteCheckoutSubscribe
         add_action('woocommerce_thankyou', array($this, 'mlcs_subscribe_customer_after_order'), 10); // $order->get_id() 
         add_action('woocommerce_thankyou', array($this, 'mlcs_dequeue_scripts'), 11); //woocommerce_checkout_update_user_meta $user_id
         add_action('woocommerce_checkout_update_user_meta', array($this, 'mlcs_update_user_meta'));
+        add_action( 'before_woocommerce_init', function() {
+            if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+                \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+            }
+        } );
         //@todo: add settings link to plugin
         //add_filter('plugin_action_links', array($this, 'mlcs_plugin_settings_link', ), 10, 2 );
         //@todo: unsubscribe button to my-account
