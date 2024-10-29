@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: MailerLite Checkout Subscribe\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-28 11:14+0000\n"
-"PO-Revision-Date: 2024-04-26 10:58+0000\n"
+"PO-Revision-Date: 2024-10-29 07:31+0000\n"
 "Last-Translator: Admin2 Admin2\n"
 "Language-Team: German (Formal)\n"
 "Language: de-DE-formal\n"
@@ -17,15 +17,15 @@ msgstr ""
 
 #: mlcs.php:170
 msgid "Additional field #1:"
-msgstr ""
+msgstr "Zusätzliches Feld #1:"
 
 #. Author of the plugin
 msgid "Borsányi István, Gyuris Csaba"
-msgstr ""
+msgstr "Borsányi István, Gyuris Csaba"
 
 #: mlcs.php:140 mlcs.php:160 mlcs.php:197
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: mlcs.php:545
 msgid "Error subscribing customer: "
@@ -33,7 +33,7 @@ msgstr "Fehler beim Abonnieren eines Kunden: "
 
 #. Author URI of the plugin
 msgid "https://github.com/Estalhun"
-msgstr ""
+msgstr "https://github.com/Estalhun"
 
 #: mlcs.php:440
 msgid "I subscribe to newsletters."
@@ -45,59 +45,63 @@ msgstr "Ich abonniere Telemarketing-Anrufe."
 
 #: mlcs.php:117
 msgid "MailerLite API Token:"
-msgstr ""
+msgstr "MailerLite API Token:"
 
 #. Name of the plugin
 msgid "MailerLite Checkout Subscribe"
-msgstr ""
+msgstr "MailerLite Checkout Abonnieren"
 
 #: mlcs.php:101
 msgid "MailerLite Checkout Subscribe Settings"
-msgstr ""
+msgstr "MailerLite Checkout Abonnieren Einstellungen"
 
 #: mlcs.php:187
 msgid "MailerLite Follow-Up Email Group:"
-msgstr ""
+msgstr "MailerLite Follow-Up E-Mail-Gruppe:"
 
 #: mlcs.php:131
 msgid "MailerLite Newsletter Group Settings:"
-msgstr ""
+msgstr "MailerLite Newsletter Gruppeneinstellungen:"
 
 #: mlcs.php:151
 msgid "MailerLite Telemarketing Group Settings:"
-msgstr ""
+msgstr "MailerLite Telemarketing Gruppeneinstellungen:"
 
 #: mlcs.php:124
 msgid "Please enter a valid MailerLite API Token"
-msgstr ""
+msgstr "Bitte geben Sie ein gültiges MailerLite API Token ein"
 
 #: mlcs.php:180
 msgid "Please enter a valid MailerLite field ID and a field value"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige MailerLite Feld-ID und einen Feldwert ein"
 
 #: mlcs.php:198
 msgid "Please enter a valid MailerLite subscriber list ID"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige MailerLite Abonnentenlisten-ID ein"
 
 #: mlcs.php:142
 msgid ""
 "Please enter a valid MailerLite subscriber list ID for subscribers on "
 "registration form."
 msgstr ""
+"Bitte geben Sie im Registrierungsformular eine gültige MailerLite-"
+"Abonnentenlisten-ID für Abonnenten ein."
 
 #: mlcs.php:162
 msgid ""
 "Please enter a valid MailerLite subscriber list ID, which will be used for "
 "subscribers on the registration form or at checkout."
 msgstr ""
+"Bitte geben Sie eine gültige MailerLite-Abonnentenlisten-ID ein, die für "
+"Abonnenten auf dem Registrierungsformular oder an der Kasse verwendet wird."
 
 #: mlcs.php:225 mlcs.php:230
 msgid "Please enter a valid subscriber list!"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige Abonnentenliste ein!"
 
 #: mlcs.php:220
 msgid "Please enter a valid token!"
-msgstr ""
+msgstr "Bitte geben Sie einen gültigen Token ein!"
 
 #: mlcs.php:502
 msgid "Please enter the mobile number in the following format: +36701234567"
@@ -105,11 +109,11 @@ msgstr "Bitte geben Sie die Handynummer in folgendem Format ein: +49123456789"
 
 #: mlcs.php:242 mlcs.php:255
 msgid "Please enter valid Key & Value pair!"
-msgstr ""
+msgstr "Bitte geben Sie ein gültiges Schlüssel/Wert-Paar ein!"
 
 #: mlcs.php:203
 msgid "Save Changes"
-msgstr ""
+msgstr "Änderungen speichern"
 
 #: mlcs.php:505
 msgid ""
@@ -133,7 +137,7 @@ msgstr "Dies kann die folgenden Gründe haben:"
 
 #: mlcs.php:143
 msgid "This should be the default MailerLite newsletter group."
-msgstr ""
+msgstr "Dies sollte die standardmäßige MailerLite Newsletter-Gruppe sein."
 
 #. Description of the plugin
 msgid ""
@@ -141,6 +145,9 @@ msgid ""
 "Functions: Sign up at registration, follow-up email subscription, custom "
 "fields."
 msgstr ""
+"Verwenden Sie dieses Plugin zusammen mit MailerLite - WooCommerce "
+"Integration. Funktionen: Anmeldung bei der Registrierung, Folge-E-Mail-"
+"Abonnement, benutzerdefinierte Felder."
 
 #: mlcs.php:398
 msgid "Would you like to receive a phone call from our customer support team?"

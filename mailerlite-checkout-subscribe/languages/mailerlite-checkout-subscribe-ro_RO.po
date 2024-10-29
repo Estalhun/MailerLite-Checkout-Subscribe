@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: MailerLite Checkout Subscribe\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-03-28 11:14+0000\n"
-"PO-Revision-Date: 2024-04-26 10:59+0000\n"
+"PO-Revision-Date: 2024-10-29 07:30+0000\n"
 "Last-Translator: Admin2 Admin2\n"
 "Language-Team: Romanian\n"
 "Language: ro-RO\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: mlcs.php:170
 msgid "Additional field #1:"
-msgstr ""
+msgstr "Câmp suplimentar #1:"
 
 #. Author of the plugin
 msgid "Borsányi István, Gyuris Csaba"
-msgstr ""
+msgstr "Borsányi István, Gyuris Csaba"
 
 #: mlcs.php:140 mlcs.php:160 mlcs.php:197
 msgid "Enabled"
-msgstr ""
+msgstr "Activat"
 
 #: mlcs.php:545
 msgid "Error subscribing customer: "
@@ -34,7 +34,7 @@ msgstr "Eroare la abonarea clientului: "
 
 #. Author URI of the plugin
 msgid "https://github.com/Estalhun"
-msgstr ""
+msgstr "https://github.com/Estalhun"
 
 #: mlcs.php:440
 msgid "I subscribe to newsletters."
@@ -46,59 +46,66 @@ msgstr "Mă abonez la apelurile de telemarketing."
 
 #: mlcs.php:117
 msgid "MailerLite API Token:"
-msgstr ""
+msgstr "Token API MailerLite:"
 
 #. Name of the plugin
 msgid "MailerLite Checkout Subscribe"
-msgstr ""
+msgstr "MailerLite Checkout Abonare"
 
 #: mlcs.php:101
 msgid "MailerLite Checkout Subscribe Settings"
-msgstr ""
+msgstr "MailerLite Checkout Abonare Setări"
 
 #: mlcs.php:187
 msgid "MailerLite Follow-Up Email Group:"
-msgstr ""
+msgstr "MailerLite Follow-Up Email Group:"
 
 #: mlcs.php:131
 msgid "MailerLite Newsletter Group Settings:"
-msgstr ""
+msgstr "Setări grup newsletter MailerLite:"
 
 #: mlcs.php:151
 msgid "MailerLite Telemarketing Group Settings:"
-msgstr ""
+msgstr "MailerLite Setări grup telemarketing:"
 
 #: mlcs.php:124
 msgid "Please enter a valid MailerLite API Token"
-msgstr ""
+msgstr "Vă rugăm să introduceți un Token API MailerLite valid"
 
 #: mlcs.php:180
 msgid "Please enter a valid MailerLite field ID and a field value"
 msgstr ""
+"Vă rugăm să introduceți un ID de câmp MailerLite valid și o valoare de câmp"
 
 #: mlcs.php:198
 msgid "Please enter a valid MailerLite subscriber list ID"
 msgstr ""
+"Vă rugăm să introduceți un ID valabil pentru lista de abonați MailerLite"
 
 #: mlcs.php:142
 msgid ""
 "Please enter a valid MailerLite subscriber list ID for subscribers on "
 "registration form."
 msgstr ""
+"Vă rugăm să introduceți un ID valabil pentru lista de abonați MailerLite "
+"pentru abonați pe formularul de înregistrare."
 
 #: mlcs.php:162
 msgid ""
 "Please enter a valid MailerLite subscriber list ID, which will be used for "
 "subscribers on the registration form or at checkout."
 msgstr ""
+"Vă rugăm să introduceți un ID valabil pentru lista de abonați MailerLite, "
+"care va fi utilizat pentru abonați pe formularul de înregistrare sau la "
+"finalizarea comenzii."
 
 #: mlcs.php:225 mlcs.php:230
 msgid "Please enter a valid subscriber list!"
-msgstr ""
+msgstr "Vă rugăm să introduceți o listă de abonați validă!"
 
 #: mlcs.php:220
 msgid "Please enter a valid token!"
-msgstr ""
+msgstr "Vă rugăm să introduceți un simbol valid!"
 
 #: mlcs.php:502
 msgid "Please enter the mobile number in the following format: +36701234567"
@@ -108,11 +115,11 @@ msgstr ""
 
 #: mlcs.php:242 mlcs.php:255
 msgid "Please enter valid Key & Value pair!"
-msgstr ""
+msgstr "Vă rugăm să introduceți o pereche cheie și valoare validă!"
 
 #: mlcs.php:203
 msgid "Save Changes"
-msgstr ""
+msgstr "Salvați modificările"
 
 #: mlcs.php:505
 msgid ""
@@ -137,6 +144,7 @@ msgstr "Acest lucru se poate datora următoarelor motive:"
 #: mlcs.php:143
 msgid "This should be the default MailerLite newsletter group."
 msgstr ""
+"Acesta ar trebui să fie grupul implicit de buletine informative MailerLite."
 
 #. Description of the plugin
 msgid ""
@@ -144,6 +152,9 @@ msgid ""
 "Functions: Sign up at registration, follow-up email subscription, custom "
 "fields."
 msgstr ""
+"Utilizați acest plugin împreună cu MailerLite - Integrare WooCommerce. "
+"Funcții: Înscriere la înregistrare, abonare prin e-mail de urmărire, câmpuri "
+"personalizate."
 
 #: mlcs.php:398
 msgid "Would you like to receive a phone call from our customer support team?"

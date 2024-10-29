@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailerLite Checkout Subscribe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-26 10:57+0000\n"
+"POT-Creation-Date: 2024-10-29 07:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.6.7; wp-6.4.3\n"
 "X-Domain: mailerlite-checkout-subscribe"
 
-#: mlcs.php:170
+#: mlcs.php:178
 msgid "Additional field #1:"
 msgstr ""
 
@@ -24,11 +24,11 @@ msgstr ""
 msgid "Borsányi István, Gyuris Csaba"
 msgstr ""
 
-#: mlcs.php:140 mlcs.php:160 mlcs.php:197
+#: mlcs.php:148 mlcs.php:168 mlcs.php:205
 msgid "Enabled"
 msgstr ""
 
-#: mlcs.php:545
+#: mlcs.php:561
 msgid "Error subscribing customer: "
 msgstr ""
 
@@ -36,15 +36,15 @@ msgstr ""
 msgid "https://github.com/Estalhun"
 msgstr ""
 
-#: mlcs.php:440
+#: mlcs.php:454
 msgid "I subscribe to newsletters."
 msgstr ""
 
-#: mlcs.php:458
+#: mlcs.php:472
 msgid "I subscribe to telemarketing calls."
 msgstr ""
 
-#: mlcs.php:117
+#: mlcs.php:125
 msgid "MailerLite API Token:"
 msgstr ""
 
@@ -52,85 +52,85 @@ msgstr ""
 msgid "MailerLite Checkout Subscribe"
 msgstr ""
 
-#: mlcs.php:101
+#: mlcs.php:109
 msgid "MailerLite Checkout Subscribe Settings"
 msgstr ""
 
-#: mlcs.php:187
+#: mlcs.php:195
 msgid "MailerLite Follow-Up Email Group:"
 msgstr ""
 
-#: mlcs.php:131
+#: mlcs.php:139
 msgid "MailerLite Newsletter Group Settings:"
 msgstr ""
 
-#: mlcs.php:151
+#: mlcs.php:159
 msgid "MailerLite Telemarketing Group Settings:"
 msgstr ""
 
-#: mlcs.php:124
+#: mlcs.php:132
 msgid "Please enter a valid MailerLite API Token"
 msgstr ""
 
-#: mlcs.php:180
+#: mlcs.php:188
 msgid "Please enter a valid MailerLite field ID and a field value"
 msgstr ""
 
-#: mlcs.php:198
+#: mlcs.php:206
 msgid "Please enter a valid MailerLite subscriber list ID"
 msgstr ""
 
-#: mlcs.php:142
+#: mlcs.php:150
 msgid ""
 "Please enter a valid MailerLite subscriber list ID for subscribers on "
 "registration form."
 msgstr ""
 
-#: mlcs.php:162
+#: mlcs.php:170
 msgid ""
 "Please enter a valid MailerLite subscriber list ID, which will be used for "
 "subscribers on the registration form or at checkout."
 msgstr ""
 
-#: mlcs.php:225 mlcs.php:230
+#: mlcs.php:233 mlcs.php:238
 msgid "Please enter a valid subscriber list!"
 msgstr ""
 
-#: mlcs.php:220
+#: mlcs.php:228
 msgid "Please enter a valid token!"
 msgstr ""
 
-#: mlcs.php:502
+#: mlcs.php:517
 msgid "Please enter the mobile number in the following format: +36701234567"
 msgstr ""
 
-#: mlcs.php:242 mlcs.php:255
+#: mlcs.php:250 mlcs.php:263
 msgid "Please enter valid Key & Value pair!"
 msgstr ""
 
-#: mlcs.php:203
+#: mlcs.php:211
 msgid "Save Changes"
 msgstr ""
 
-#: mlcs.php:505
+#: mlcs.php:520
 msgid ""
 "the browser you are using is not up to date and therefore does not work with "
 "the shop,"
 msgstr ""
 
-#: mlcs.php:504
+#: mlcs.php:519
 msgid "the data entered is incorrect,"
 msgstr ""
 
-#: mlcs.php:501
+#: mlcs.php:516
 msgid "The mobile phone number you entered is incorrect:"
 msgstr ""
 
-#: mlcs.php:503
+#: mlcs.php:518
 msgid "This may be due to the following reasons:"
 msgstr ""
 
-#: mlcs.php:143
+#: mlcs.php:151
 msgid "This should be the default MailerLite newsletter group."
 msgstr ""
 
@@ -141,17 +141,17 @@ msgid ""
 "fields."
 msgstr ""
 
-#: mlcs.php:398
+#: mlcs.php:412
 msgid "Would you like to receive a phone call from our customer support team?"
 msgstr ""
 
-#: mlcs.php:506
+#: mlcs.php:521
 msgid ""
 "You are using an ad-blocking plugin that may cause errors in the operation "
 "of the shop, so please disable it!"
 msgstr ""
 
-#: mlcs.php:442 mlcs.php:460
+#: mlcs.php:456 mlcs.php:474
 msgid ""
 "You may withdraw your consent at any time, without giving any reason, in "
 "accordance with the Privacy Policy."
