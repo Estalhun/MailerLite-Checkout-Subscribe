@@ -7,8 +7,9 @@ Subscribe the customer to the follow-up email list, e.g. thank you email after 5
 Functions: Sign up at registration, follow-up email subscription, custom fields, telemarketing subscribtion.
 
 Install plugin:
-1. Download the 'mailerlite-checkout-subscribe' folder and make a ZIP file.
-2. Upload via WP admin and activate.
+1. Download the ZIP file from release.
+2. Or download the 'mailerlite-checkout-subscribe' folder and make a ZIP file.
+3. Upload via WP admin and activate.
    
 Copyright (C) 2024 István Borsányi, Csaba Gyuris
 Contact: send me a message via [Facebook](https://www.facebook.com/BorsanyiIstvan75)
